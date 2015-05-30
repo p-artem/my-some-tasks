@@ -1,0 +1,51 @@
+<?php 
+    $userId = $controller->getUserId();
+          
+    $userRoleId = 0;
+    if($userId) {
+        $userModel      = Model_User::getById($userId);
+        $userEmail      = $userModel->email;
+        $userRoleId     = $userModel->role_id; 
+    }
+
+    $errorType = $controller->getParamByKey('error');
+    $errorMessage = '';
+    if(!empty($errorType)) {
+        switch($errorType) {
+            case System_Exception::ALREADY_EXIST:
+                $errorMessage = 'Such account already exists!';
+                break;
+            case System_Exception::VALIDATE_ERROR:
+                $errorMessage = 'Invalid enetered data!';
+                break;
+            case System_Exception::ERROR_CREATE_USER:
+                $errorMessage = 'Can\'t create new user! Try again!';
+                break;
+            case System_Exception::INVALID_LOGIN:
+                $errorMessage = 'Invalid user or password!';
+                break;    
+        }
+    }
+?>
+
+        
+<?php 
+    if($controllerName == 'admin')
+    {
+        require_once 'Admin/index.phtml';
+    }
+    else { ?> 
+
+<?php !empty($userEmail); ?>
+
+<? require_once 'header.phtml'; ?>
+		<div id="main">
+<? require_once 'sidebar.phtml'; ?>
+                    
+    <?php
+        if(file_exists($viewFileName)) {
+            include $viewFileName;
+        }
+    ?>
+		</div>
+    <? require_once 'footer.phtml'; }?>

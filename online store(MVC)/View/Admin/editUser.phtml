@@ -1,0 +1,79 @@
+<?php $editUser    = $view->getParam('editUser'); ?>
+
+<div class="content">
+	
+<h2>Редактирование пользователя</h2>
+
+<form action="/admin/users" method="post" id="editUserForm">
+
+    <?php if(!empty($editUser )) :?>
+<span style="dislpay: none " id="userId"><?=$editUser->id; ?></span>   
+<table class="add_edit_page" cellspacing="0" cellpadding="0">
+    <tr>
+        <td class="add-edit-txt">Имя пользователя:</td>
+        <td><input class="head-text" type="text" name="firstName" value="<?=$editUser->firstName; ?>" /></td>
+    </tr>
+    <tr>
+        <td class="add-edit-txt">Имя фамилия:</td>
+        <td><input class="head-text" type="text" name="sureName" value="<?=$editUser->sureName; ?>" /></td>
+    </tr>
+    <tr>
+        <td class="add-edit-txt">Имя отчество:</td>
+        <td><input class="head-text" type="text" name="lastName" value="<?=$editUser->lastName; ?>" /></td>
+    </tr>
+    <tr>
+        <td class="add-edit-txt">Логин пользователя:</td>
+        <td>
+
+        <input class="head-text" type="text" name="login" value="<?=$editUser->login; ?>" />
+
+        <input class="head-text" type="text" name="login" value="<?=$editUser->login; ?>" disabled="" /> <span class="small">Собственный логин изменить нельзя</span>
+
+        </td>
+    </tr>
+    <tr>
+        <td class="add-edit-txt">Новый пароль:</td>
+        <td><input class="head-text" type="text" name="password" /></td>
+    </tr>
+    <tr>
+        <td class="add-edit-txt">Email пользователя:</td>
+        <td><input class="head-text" type="text" name="email" value="<?=$editUser->email; ?>" /></td>
+    </tr>
+    <tr>
+        <td class="add-edit-txt">Телефон пользователя:</td>
+        <td><input class="head-text" type="text" name="phone" value="<?=$editUser->phone; ?>" /></td>
+    </tr>
+    <tr>
+        <td class="add-edit-txt">Адрес пользователя:</td>
+        <td><input class="head-text" type="text" name="address" value="<?=$editUser->address; ?>" /></td>
+    </tr>
+
+    <tr>
+        <td class="add-edit-txt">Роль пользователя:</td>
+        <td>
+
+            <select name="id_role"  id="idRole">
+                <option value="1">Admin</option>
+                <option value="3">AdvancedUser</option>
+                <option value="4">SuperUser</option>
+                <option value="5">SimpleUser</option>    
+            </select>
+      
+        </td>
+    </tr>
+
+</table>
+ 
+<?php  elseif($view->getParam('error')) : ?>
+    <div style="color:red;"><h1><?php echo $view->getParam('error')?></h1></div>
+<?php endif; ?>
+	
+    <input type="image" src="/../../Lib/admin/images/save_btn.jpg" id="editUser"/> 
+
+</form>
+
+	</div> <!-- .content -->
+	</div> <!-- .content-main -->
+</div> <!-- .karkas -->
+</body>
+</html>

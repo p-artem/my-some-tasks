@@ -1,0 +1,192 @@
+<?php $productSlider   = $view->getParam('productSlider'); 
+$countSldeImg = 1;
+?>
+
+
+<div class="rigth-bar">
+        <!--<div class="slider">
+                <div class="left-slider">
+                        <h2>Электрический мини<br/> - вертолет Beacon</h2>
+                        <div class="info-prod">
+                                <table>
+                                        <tr>
+                                                <td>Тип:</td>
+                                                <td>мини вертолет</td>
+                                        </tr>
+                                        <tr>
+                                                <td>Шасси:</td>
+                                                <td>пластик</td>
+                                        </tr>
+                                        <tr>
+                                                <td>Эдектродвигатели:</td>
+                                                <td>180 размера (2шт.)</td>
+                                        </tr>
+                                        <tr>
+                                                <td>Время полёта:</td>
+                                                <td>10 - 12 минут</td>
+                                        </tr>
+                                </table>
+                        </div>
+                        <div class="price">
+                                        <span>Цена:</span>
+                                        <span>6&nbsp960</span>
+                                        <span>рублей</span>
+                        </div>
+                        <div class="to-coats">
+                                <button>В корзину</button>
+                        </div>
+                </div>
+                <div class="right-slider">
+                        <img src="/Lib/image/aaa.png" alt="slider-img">
+                </div>
+        </div>-->
+        <div id="page-wrap">
+			
+		<div id="slider">
+
+			<div id="mover">
+		
+                            <?php if(!empty($productSlider  )) :?>
+                                <?php foreach($productSlider  as $slide) : ?>
+				<div id="slide-1" class="slide">
+				
+					<h1><?php echo $slide->name; ?></h1>
+					
+					<p><?php echo $slide->description; ?></p>
+					
+                                        <a href="#"><img src="/Lib/image/slider-img<?php echo $countSldeImg; ?>.jpg" alt="learn more" /></a>
+                                        <div class="price">
+                                            <span>Цена:</span>
+                                            <span><?php echo $slide->price; ?></span>
+                                            <span>рублей</span>
+                                        </div>
+					
+				</div>
+                            <?php $countSldeImg++; ?>
+                             <?php endforeach; ?>
+                            <?php  elseif($view->getParam('error')) : ?>
+                              <div style="color:red;"><h1><?php echo $view->getParam('error')?></h1></div>
+                            <?php endif; ?> 
+			</div>
+                
+                        <div class="to-basket">
+                            <button><a href="">В корзину</a></button>
+                        </div>
+
+		</div>
+	</div>
+        <div class="line"></div>  
+        <article>
+                <div class="sale">
+                        <h3>Распродажа</h3>
+                        <section>
+                                <img src="/Lib/image/image-1.jpg" alt="image-1">
+                                <div class="price">
+                                        <p>18&nbsp480 р.</p>
+                                </div>
+                                <div class="description">	
+                                                <a href="#">CYCLONE D4 WORLD CHAMPIONSHIP EDITION KIT</a>
+                                </div>
+                        </section>
+                        <section>
+                                <img src="/Lib/image/image-1.jpg" alt="image-1">
+                                <div class="price">
+                                        <p>18&nbsp480 р.</p>
+                                </div>
+                                <div class="description">	
+                                                <a href="#">CYCLONE D4 WORLD CHAMPIONSHIP EDITION KIT</a>
+                                </div>
+                        </section>
+                        <section>
+                                <img src="/Lib/image/image-1.jpg" alt="image-1">
+                                <div class="price">
+                                        <p>18&nbsp480 р.</p>
+                                </div>
+                                <div class="description">	
+                                                <a href="#">CYCLONE D4 WORLD CHAMPIONSHIP EDITION KIT</a>
+                                </div>
+                        </section>
+                </div>
+                <div class="sale">
+                        <h3>Хиты продаж</h3>
+                        <section>
+                                <img src="/Lib/image/image-1.jpg" alt="image-1">
+                                <div class="price">
+                                        <p>18&nbsp480 р.</p>
+                                </div>
+                                <div class="description">	
+                                                <a href="#">CYCLONE D4 WORLD CHAMPIONSHIP EDITION KIT</a>
+                                </div>
+                        </section>
+                        <section>
+                                <img src="/Lib/image/image-1.jpg" alt="image-1">
+                                <div class="price">
+                                        <p>18&nbsp480 р.</p>
+                                </div>
+                                <div class="description">	
+                                                <a href="#">CYCLONE D4 WORLD CHAMPIONSHIP EDITION KIT</a>
+                                </div>
+                        </section>
+                        <section>
+                                <img src="/Lib/image/image-1.jpg" alt="image-1">
+                                <div class="price">
+                                        <p>18&nbsp480 р.</p>
+                                </div>
+                                <div class="description">	
+                                                <a href="#">CYCLONE D4 WORLD CHAMPIONSHIP EDITION KIT</a>
+                                </div>
+                        </section>
+                        <section>
+                                <img src="/Lib/image/image-1.jpg" alt="image-1">
+                                <div class="price">
+                                        <p>18&nbsp480 р.</p>
+                                </div>
+                                <div class="description">	
+                                                <a href="#">CYCLONE D4 WORLD CHAMPIONSHIP EDITION KIT</a>
+                                </div>
+                        </section>
+                        <section>
+                                <img src="/Lib/image/image-1.jpg" alt="image-1">
+                                <div class="price">
+                                        <p>18&nbsp480 р.</p>
+                                </div>
+                                <div class="description">	
+                                                <a href="#">CYCLONE D4 WORLD CHAMPIONSHIP EDITION KIT</a>
+                                </div>
+                        </section>
+                        <section>
+                                <img src="/Lib/image/image-1.jpg" alt="image-1">
+                                <div class="price">
+                                        <p>18&nbsp480 р.</p>
+                                </div>
+                                <div class="description">	
+                                                <a href="#">CYCLONE D4 WORLD CHAMPIONSHIP EDITION KIT</a>
+                                </div>
+                        </section>
+                </div>
+        </article>
+        <div class="review">
+                <h3>Последние обзоры</h3>
+                <section class="first">
+                        <img src="/Lib/image/image-review.jpg" alt="image-review">
+                        <div class="review-right">
+                                <a href="#">Наша компания организовала тест на прочность и выносливость эктрическому мини-вертолету HM60#B</a>
+                                <p>Было приглашено около 30 человек, но зрителей собралось в разы больше. Место проведения теста - площадь.
+Зрители смотрели как на шоу, маневры и падения вертолета сопровождались возгласами, вот вот и ходила бы волна по зрителям.</p>
+                        </div>
+                </section>
+                <section>
+                        <img src="/Lib/image/image-review.jpg" alt="image-review">
+                        <div class="review-right">
+                                <a href="#">Наша компания организовала тест на прочность и выносливость эктрическому мини-вертолету HM60#B</a>
+                                <p>Было приглашено около 30 человек, но зрителей собралось в разы больше. Место проведения теста - площадь.
+Зрители смотрели как на шоу, маневры и падения вертолета сопровождались возгласами, вот вот и ходила бы волна по зрителям.</p>
+                        </div>
+                </section>
+        </div>
+        <div class="for-company">
+                <h3>О компании</h3>
+                <p>История компании elwau.ru – один из примеров сочетания творческого подхода с чрезвычайной практичностью. Знаменитая идея братьев Венинг – оснастить различные виды транспорта мобильными холодильниками – в 70-х годах прошлого века перешагнула стандарты инженерного мышления.
+Что же до применения этой и множества других разработок – автохолодильники автокондиционеры, автопылесосы, автокофеварки elwau.ru – то здесь братья-изобретатели блестяще продемонстрировали свои организаторские таланты.  <a href="/company/portfolio">читать дальше</a></p>
+        </div>
+    </div>

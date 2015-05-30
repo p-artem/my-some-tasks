@@ -1,0 +1,49 @@
+<?php $currentPage  = $view->getParam('currentPage'); ?>
+<?php $limit        = $view->getParam('limit'); ?>
+<?php $count        = $view->getParam('countUsers'); ?>
+<?php $orderType    = $view->getParam('orderType'); ?>
+<?php $orderBy      = $view->getParam('orderBy'); ?>
+<?php $users    = $view->getParam('users'); ?>
+
+<div class="content">
+	<h2>Список пользователей</h2>
+
+        <a href="/admin/addUser"><img class="add_some" src="../../lib/admin/images/add_user.jpg" alt="добавить юзера" /></a>
+
+<form method="post" id="usersForm">
+<table class="tabl" cellspacing="1" id="tabl">
+<thead>   
+    <tr>
+        <th class="number">№</th>
+        <th class="str_name">Имя</th>
+        <th class="str_name">Логин</th>
+        <th class="str_name">mail</th>
+        <th class="str_sort">Роль</th>
+        <th class="str_action">Действие</th>
+    </tr>
+</thead>
+<tbody> 
+<?php if(!empty($users)) :?>   
+<?php foreach($users as $user) : ?>
+    <tr class="deleteUser">
+        <td id="userNumber"><?=$user->id; ?></td>
+    	<td class="name_page"><?=$user->firstName; ?></td>
+        <td class="name_page"><?=$user->login; ?></td>
+        <td class="name_page"><?=$user->email; ?></td>
+    	<td><?=$user->role_id; ?></td>
+        <td><a href="/admin/editUser/id/<?=$user->id; ?>" class="edit" id="editUser">изменить</a>&nbsp; | &nbsp;<a href="/admin/deleteUser/id/<?=$user->id; ?>"  id="deleteUser">удалить</a></td>
+    </tr>
+<?php endforeach; ?>
+   
+<?php  elseif($view->getParam('error')) : ?>
+    <div style="color:red;"><h1><?php echo $view->getParam('error')?></h1></div>
+<?php endif; ?>    
+ </tbody>
+</table>
+</form>
+<a href="?view=add_user"><img class="add_some" src="" /></a>
+	</div> <!-- .content -->
+	</div> <!-- .content-main -->
+</div> <!-- .karkas -->
+</body>
+</html>

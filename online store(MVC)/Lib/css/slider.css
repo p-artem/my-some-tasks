@@ -1,0 +1,80 @@
+#page-wrap						{  margin-bottom: 25px; border-radius: 8px; 
+                                                            -webkit-box-shadow: 0px 0px 20px 7px rgba(50, 50, 50, 0.64);
+                                                            -moz-box-shadow:    0px 0px 20px 7px rgba(50, 50, 50, 0.64);
+                                                            box-shadow:         0px 0px 20px 7px rgba(50, 50, 50, 0.64); }
+
+#slider							{ background: white url(/lib/image/slider-bg1.jpg); height: 300px; overflow: hidden;
+								  position: relative; margin: 15px 0; border-radius: 8px;}
+								  
+                                /* DEFAULT is for three panels in width, adjust as needed
+                                   This only matters if JS is OFF, otherwise JS sets this. */								  
+#mover							{ width: 2880px; position: relative; }
+
+.slide							{ padding: 50px 40px; width: 700px; float: left; position: relative; }
+.slide h1						{ font-family: Helvetica, Sans-Serif; font-size: 30px; letter-spacing: -1px;
+								  color: #ed6d3b; }
+.slide p						{ color: #fff; font-size: 12px; line-height: 22px; width: 300px; }
+.slide img						{ position: absolute; top: 40px; left: 390px; border-radius: 5px; border: 6px solid #f3f2f0; width: 290px; height: 210px;}
+#slider-stopper					{ position: absolute; top: 0px; right: 0px; background: #ac0000; color: white;
+								  padding: 5px 10px; font-size: 10px; text-transform: uppercase; z-index: 1000; border-bottom-left-radius: 8px;}
+#slider .price{
+	padding-top: 22px;
+	float: left;
+}
+
+#slider .price span{
+	margin-right: 8px;
+}
+
+#slider .price span:first-child{
+	font-size: 18px;
+	color: #fff;
+        padding-top: 4px;
+}
+
+#slider .price span:nth-child(even){
+	font-size: 24px;
+	color: #ed6d3b;
+}
+
+#slider .price span:last-child{
+	color: #fff;
+	font-size: 14px;
+        padding-top: 5px;
+}
+
+#slider .to-basket{
+	position: absolute;
+	left: 40px;
+	bottom: 10px;
+}
+
+#slider  button{
+	font-size: 13px;
+	text-transform: uppercase;
+	color: #fff;
+	padding: 10px 23px 10px 10px;
+	background: #ac0000;
+	border: none;
+	border-radius: 6px;
+	position: relative;
+	cursor: pointer;
+        font-weight:bold;
+}
+
+#slider  button a{
+    color: #fff;
+}
+
+#slider  button:after{
+	content: '';
+	background: url(../image/arrow.png);
+	width: 5px;
+	height: 11px;
+	position: absolute;
+	right: 8px;
+	top: 11.5px;
+}
+.slider img{
+	position: relative;
+}

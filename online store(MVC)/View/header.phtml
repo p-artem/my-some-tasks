@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Elwau</title>
+        <link rel="stylesheet" href="/lib/css/all.css">
+        <link rel="stylesheet" href="/lib/css/reset.css">
+	<link rel="stylesheet" href="/lib/css/animate.css">
+        <link rel="stylesheet" href="/lib/css/slider.css" />
+        <script type="text/javascript" src="/lib/js/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="/lib/js/myscrypt.js"></script>
+        <script type="text/javascript" src="/lib/js/authorize.js"></script>
+        <script type="text/javascript" src="/lib/js/startstop-slider.js"></script>
+     
+        
+	<!--[if lt IE 9]>
+	<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+<body>
+<div id="wrapper">
+    <header>
+        <div class="top-header">
+                <nav>
+                        <ul>
+                                <li><a href="/">Главная</a></li>
+                                <li><a href="/product/index">Каталог</a></li>
+                                <li><a href="/company/delivery">Доставка</a></li>
+                                <li><a href="/company/about">Контакты</a></li>
+                                <li><a href="/company/portfolio">О компании</a></li>
+                        </ul>
+                </nav>
+                <div class="search">
+                        <input type="text" class="search-text" placeholder="Поиск по каталогу">
+                </div>
+        </div>
+        <div class="bottom-header">
+                <div class="logo">
+                        <a href="#"><img src="/Lib/image/logo.jpg" alt="logo" ></a>
+                </div>
+                <div class="contact">
+                        <div class="phone">
+                                <p class="code-number">(095)</p>
+                                <p class="second-number">234-22-33,</p>
+                                <p class="code-number">(067)</p>
+                                <p class="second-number">234-22-35</p>
+                        </div>
+                        <div class="mail">
+                                <a href="#">Написать сообщение</a>
+                        </div>
+                        <div class="skype">
+                                <p>magazine.elwau</p>
+                        </div>
+                </div>
+
+            <div id="login-form" >
+                <div id="personal" style="<?php if(empty($userEmail )) { echo 'display: none;'; } ?>">
+                    <p class="basket" style="">В вашей корзине пусто</p>
+                    <p class="basket-add" style="display:none">В вашей <a href="#">корзине</a><span>0</span>товаров</p>
+                    <a id="admin_href" class="logoAdm" href="/admin/index" style="<?php if($userRoleId != Model_User::ROLE_ADMIN_ID) { echo 'display: none;'; } ?>"></a>
+                    <a href="#" id="personal-link">Личный кабинет</a>
+                    <a href="#" id="logout">Выход</a>
+                </div>
+                <div id="error"><?php echo !empty($errorMessage) ? $errorMessage : ''; ?></div>
+                <div style="<?php if(!empty($userEmail )) { echo 'display: none;'; } ?>" id="login-form-div">
+                <fieldset>
+                    <form name="autorize" id="loginForm" method="POST" autocomplete="off">
+                            <div class="header">
+                                <div class="field-text">
+                                    <input name="email" type="email" value="Логин" onBlur="if(this.value=='')this.value='Логин'" onFocus="if(this.value=='Логин')this.value='' ">
+                                    <input name="password" type="password" value="Пароль" onBlur="if(this.value=='')this.value='Пароль'" onFocus="if(this.value=='Пароль')this.value='' ">
+                                </div>
+                                <input type="submit" value="" name="login">
+                            </div>
+                        <div class="footer-log">
+                            <div class="clear">
+                                <p><span class="info">?</span><a href="#">Забыли пароль?</a></p>
+                                <input type="checkbox" id="save_checkbox" name="save" value="1">
+                                <label for="save_checkbox">Запомнить</label>
+                            </div>
+                            <div class="register">
+                                <a href="#dialog" class=" modal" name="register" id="registerForm">Регистрация</a>
+                            </div>
+                        </div>
+                    </form>
+                </fieldset>
+                </div>
+            </div>
+        </div>
+        <!-- Само окно -->
+        <div id="boxes">  
+        <div id="dialog" class="window">
+        <div class="content">
+        <div id="container">
+            <form action="/authorize/register" method="post" name="autorize" id="loginForm">
+                        <div id="errorReg"><?php echo !empty($errorMessage) ? $errorMessage : ''; ?></div>
+			<label for="name">Логин:</label>
+                        <input type="text" id="name" name="loginReg">
+                        <label for="email">Email:</label>
+                        <input type="text" id="email" name="emailReg">
+			<label for="password">Пароль:</label>
+                        <input type="password" id="password" name="passwordReg">
+			<div id="lower">
+				<input type="submit" value="Регистрация" id="regAccount">
+			</div>
+		</form>
+	</div>
+         </div>
+        </div>
+        </div>
+
+        <!-- Маска, затемняющая фон -->
+        <div id="mask"></div>
+    </header>

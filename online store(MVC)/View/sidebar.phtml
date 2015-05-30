@@ -1,0 +1,59 @@
+<?php $newsAll    = $view->getParam('newsAll'); ?>
+<?php
+
+function str_size($str,$length)
+{ $str = iconv("UTF-8","windows-1251", $str); $str = substr($str, 0, $length); $str = iconv("windows-1251", "UTF-8", $str); $str .= "..."; return $str;
+}
+
+?>
+
+<div class="left-bar">
+<aside>
+    <nav>
+        <div id='cssmenu'>
+            <ul>
+                <li class='active'><a href='/' class="activeLink"><span>Главная</span></a></li>
+                <li class='has-sub '><a href='#'><span>Каталог</span></a>
+                    <ul>
+                        <li><a href='#'><span>Товар 1</span></a></li>
+                        <li><a href='#'><span>Товар 2</span></a></li>
+                        <li ><a href='#'><span>Товар 3</span></a></li>
+                        <li ><a href='#'><span>Товар 4</span></a></li>
+                    </ul>
+                </li>
+                <li class='has-sub'><a href='#'><span>Самолёты</span></a>
+                    <ul>
+                        <li><a href='#'><span>Товар 1</span></a></li>
+                        <li><a href='#'><span>Товар 2</span></a></li>
+                        <li ><a href='#'><span>Товар 3</span></a></li>
+                    </ul>
+                <li class='has-sub'><a href='#'><span>Вертолёты</span></a>
+                <li class='has-sub'><a href='#'><span>Машины</span></a>
+                <li class='has-sub'><a href='#'><span>Аккумуляторы</span></a>
+                <li class='has-sub'><a href='#'><span>Инструменты</span></a>
+                <li ><a href='#'><span>Винты, крепёж, клей</span></a></li>
+                    
+                <li><a href='#'><span>Контакты</span></a></li>
+            </ul>
+        </div>
+    </nav>
+</aside>
+
+    <div class="news">
+        <?php if(!empty($newsAll  )) :?>
+        <?php foreach($newsAll as $news) : ?>
+
+        <section>
+                <date><?php echo $news->date; ?></date>
+                <a href="/news/shoNews/id/<?php echo $news->id; ?>"><h4><?php echo $news->title; ?></h4></a>
+                <p id="anons"><?php echo str_size($news->anons,200); ?></p>
+        </section>
+        <?php endforeach; ?>
+        <?php  elseif($view->getParam('error')) : ?>
+          <div style="color:red;"><h1><?php echo $view->getParam('error')?></h1></div>
+        <?php endif; ?>         
+    </div>
+    <button>Написать Нам</button>
+    <div class="banner"></div>
+    <div class="banner"></div>
+</div>

@@ -1,0 +1,62 @@
+
+<?php $currentPage  = $view->getParam('currentPage'); ?>
+<?php $limit        = $view->getParam('limit'); ?>
+<?php $orderType    = $view->getParam('orderType'); ?>
+<?php $orderBy      = $view->getParam('orderBy'); ?>
+<?php $products     = $view->getParam('products'); ?>
+
+<div class="rigth-bar">
+    <article class="all-prod">
+        <div class="bread-crumbs">
+        <a href="/">Главная</a><span>Каталог</span>
+        </div>
+        <div class="sort">
+            <span>Сортировать по:</span>
+            <?php if($orderType == 'asc') : ?>
+                <a class="sort-date" href='/product/index/page/<?php echo $currentPage;?>/limit/<?php echo $limit;?>/orderby/name/ordertype/desc'>Названию</a>
+                <a class="sort-price" href="/product/index/page/<?php echo $currentPage;?>/limit/<?php echo $limit;?>/orderby/price/ordertype/desc">Стоимость</a>
+            <?php else : ?> 
+                <a class="sort-date" href='/product/index/page/<?php echo $currentPage;?>/limit/<?php echo $limit;?>/orderby/name/ordertype/asc'>Названию</a>
+                <a class="sort-price" href="/product/index/page/<?php echo $currentPage;?>/limit/<?php echo $limit;?>/orderby/price/ordertype/asc">Стоимость</a>
+             <?php endif; ?>   
+        </div>
+        <div>
+        <?php if(!empty($products)) :?>
+             <?php foreach($products as $product) : ?>
+                <section>
+                    <img src="/Lib/image/image-1.jpg" alt="<?=$product->img; ?>">
+                    <div class="price">
+                        <p><?=$product->price; ?> р.</p>
+                    </div>
+                    <div class="description">	
+                        <a href="/product/info/id/<?=$product->id; ?>"><?=$product->name; ?></a>
+                    </div>
+                </section>            
+            <?php endforeach; ?>
+            <?php  elseif($view->getParam('error')) : ?>
+                <div style="color:red;"><h1><?php echo $view->getParam('error')?></h1></div>
+        <?php endif; ?>    
+        </div>
+    </article>
+    <div class="page">
+        <span>Страницы:</span>
+        <ul>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">10</a></li>
+            <li class="two-point"><a href="#"> .. </a></li>
+            <li><a href="#">45</a></li>
+        </ul>
+        <div class="nav-page">
+            <a href="#">Предыдущая страница</a>
+            <a href="#">Следующая страница</a>
+        </div>
+    </div>
+    <div class="for-company">
+            <h3>О компании</h3>
+            <p>История компании elwau.ru – один из примеров сочетания творческого подхода с чрезвычайной практичностью. Знаменитая идея братьев Венинг – оснастить различные виды транспорта мобильными холодильниками – в 70-х годах прошлого века перешагнула стандарты инженерного мышления.
+Что же до применения этой и множества других разработок – автохолодильники автокондиционеры, автопылесосы, автокофеварки elwau.ru – то здесь братья-изобретатели блестяще продемонстрировали свои организаторские таланты.  <a href="">читать дальше</a></p>
+    </div>
+</div>

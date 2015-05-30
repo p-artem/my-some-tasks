@@ -1,0 +1,40 @@
+<?php $currentPage  = $view->getParam('currentPage'); ?>
+<?php $limit        = $view->getParam('limit'); ?>
+<?php $orderType    = $view->getParam('orderType'); ?>
+<?php $orderBy      = $view->getParam('orderBy'); ?>
+<?php $orders    = $view->getParam('orders'); ?>
+
+<div class="content">
+	<h2>Заказы <span class="small">(необработанные заказы подсвечены)</span></h2>
+<table class="tabl" cellspacing="1">
+    <tr>
+        <th class="number">№ заказа</th>
+        <th class="str_name" style="width:280px;">Покупатель</th>
+        <th class="str_sort">Дата</th>
+        <th class="str_sort">Сумма</th>
+        <th class="str_action">Просмотр</th>
+    </tr>
+<?php if(!empty($orders)) :?>
+<?php foreach($orders as $order) : ?>
+<tr >
+    <td><?=$order->id; ?></td>
+    <td class="name_page"><?=$order->login; ?></td>
+    <td><?=$order->date; ?></td>
+    <td><?=$order->amount; ?></td>
+    <td><a href="/admin/infoOrder/id/<?=$order->id; ?>" class="edit">Просмотреть</a></td>
+</tr>
+<?php endforeach; ?>
+<?php  elseif($view->getParam('error')) : ?>
+    <div style="color:red;"><h1><?php echo $view->getParam('error')?></h1></div>
+<?php endif; ?> 
+    
+</table>
+
+<div class="error">Нет необработанных заказов</div>
+
+
+	</div> <!-- .content -->
+	</div> <!-- .content-main -->
+</div> <!-- .karkas -->
+</body>
+</html>

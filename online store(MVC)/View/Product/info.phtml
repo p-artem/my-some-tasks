@@ -1,0 +1,85 @@
+<?php
+/**
+ * @var Model_Product $product
+ */
+$product = $view->getParam('product');
+
+?>
+
+<div class="rigth-bar">
+        <article>
+            <div class="bread-crumbs">
+                <a href="/">Главная</a>
+                <a href="/product/index">Каталог</a>
+                <a href="#">Автомодели</a>
+                <a href="#">Быстрые</a>
+                <span>Cyclone D4</span>
+            </div>
+            <?php if($product) : ?>
+            <div class="object">
+                    <div class="object-top">
+                            <div class="object-left">
+                                    <div class="border-img">
+                                            <a href="#"><img src="/Lib/image/big-image.jpg" alt="image"></a>
+                                    </div>
+                                    <ul class="small-img">
+                                            <li><a href="#"><img src="/Lib/image/small-image.jpg" alt="small-image"></a></li>
+                                            <li class="center"><a href="#"><img src="/Lib/image/small-image.jpg" alt="small-image"></a></li>
+                                            <li><a href="#"><img src="/Lib/image/small-image.jpg" alt="small-image"></a></li>
+                                    </ul>
+                            </div>
+                            <div class="object-right">
+                                    <ul class="outer">
+                                            <li><h2><?=$product->name; ?></h2></li>
+                                            <li>
+                                                    <ul>
+                                                            <li><span>Производитель:&nbsp</span>Kyosho</li>
+                                                            <li><span>Модель:&nbsp</span>30861T4B</li>
+                                                            <li><span>Наличие:&nbsp</span>В наличии</li>
+                                                    </ul>
+                                            </li>
+                                            <li>
+                                                    <fieldset>
+                                                            <div class="form-buy">
+                                                                    <div class="label">
+                                                                            <label for="buy"><?=$product->price; ?> р.</label>
+                                                                            <button id="buy">купить</button>
+                                                                    </div>
+                                                            </div>
+                                                    </fieldset>
+                                            </li>
+                                            <li>
+                                                    <div class="social">
+                                                            <p>Поделиться с друзьями</p>
+                                                            <ul class="soc-ico">
+                                                                    <li><a href="#" class="vk"></a></li>
+                                                                    <li><a href="#" class="fc"></a></li>
+                                                                    <li><a href="#" class="tw"></a></li>
+                                                                    <li><a href="#" class="google"></a></li>
+                                                            </ul>
+                                                    </div>
+                                    <div class="quastion">
+                                            <ul>
+                                                    <li><a href="#">Задать вопрос по товару</a></li>
+                                                    <li><a href="/company/delivery">Доставка и гарантия</a></li>
+                                            </ul>
+                                    </div>
+                                            </li>
+                                    </ul>
+                            </div>
+                    </div>
+                    <div class="object-bottom">
+                            <div class="desc-tov">
+                                    <div class="btn-desc">
+                                            <a href="#">Описание</a>
+                                            <a href="#">Отзывы</a>
+                                    </div>
+                                    <p><?=$product->description; ?></p>
+                            </div>
+                    </div>
+            </div>
+            <?php  elseif($view->getParam('error')) : ?>
+                <div style="color:red;"><h1><?php echo $view->getParam('error')?></h1></div>
+            <?php endif; ?>
+    </article>
+</div>
